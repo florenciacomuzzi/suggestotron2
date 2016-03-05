@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.2' #says we are using rails
+gem 'rails', '4.2.2'
 
 # changed from sqlite3 as the database for Active Record
 # to work with Heroku
