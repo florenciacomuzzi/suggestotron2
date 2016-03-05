@@ -1,0 +1,46 @@
+
+
+<h1>Listing Topics</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+    <%  #deleted description... we will link somewhere else for description%>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @topics.each do |topic| %>
+      <tr>
+        <td><%= topic.title %></td>
+        <%#removed description  =>    topic.description%>
+        <td><%= link_to 'Show', topic %></td>
+        <td><%= link_to 'Edit', edit_topic_path(topic) %></td>
+        <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+
+<% @topics.each do |topic| %>
+  <tr>
+      <% #replaced topic.title with link %>
+      <% #link_to creates a link using the text from the topic title and goes to the topics#show page %>
+    <td><%= link_to topic.title, topic_path(topic) %></td>
+    <td><%= topic.description %></td>
+    <td><%= pluralize(topic.votes.count, "vote") %></td>
+    <td><%= button_to '+1', upvote_topic_path(topic), method: :post %></td>
+    <% #removed show and edit so that page is less cluttered %>
+
+    <% #changed destroy to delete %>
+    <td><%= link_to "Delete", topic, method: :delete, data: { confirm: "Are you sure?" } %></td>
+  </tr>
+<% end %>
+
+<%= link_to 'New Topic', new_topic_path %>

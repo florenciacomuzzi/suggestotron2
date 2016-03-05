@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Suggestotron</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+    <% # added a picture of a sweet, sweet kitten to appear at top of page %>
+    <img src="http://i.imgur.com/MQHYB.jpg"/>
+    <% #added flash message %>
+    <% flash.each do |name, message| %>
+    <div><%= message %></div>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>
